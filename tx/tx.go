@@ -53,10 +53,12 @@ func TestTransferWithSig() {
 
 	//注意网络配置
 	scheme := proto.TestNetScheme
-
-	// https://docs.waves.tech/en/blockchain/transaction/transaction-fee#minimum-fee
-	// decimal 为 1e8
-	// The minimum fee for a Transfer transaction is 0.001 WAVES, in case of transferring a smart asset 0.005 WAVES.
+	/*
+		https://docs.waves.tech/en/blockchain/transaction/transaction-fee#minimum-fee
+		https://docs.waves.tech/en/blockchain/transaction/#json-representation
+		decimal 为 1e8
+		Transaction fee: an integer value indicated in the minimum fraction (“cent”) of the fee asset. For example, if the fee is 0.001 WAVES, 100000 is indicated in the JSON representation, so far as 1 WAVES = 108 WAVELET
+	*/
 	toInfo := struct {
 		recipient string // 接收地址
 		amount    uint64 // 发送数量
