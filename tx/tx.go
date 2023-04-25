@@ -93,7 +93,7 @@ func TestTransferWithSig() {
 	}
 	println("bts", string(bts))
 
-	//官方不提供apikey,需要自己搭节点
+	//官方不提供apikey,需要自己搭节点,但是能在测试网发送成功
 	rpcUrl := "https://nodes-testnet.wavesnodes.com"
 	apiKey := ""
 	txs := client.NewTransactions(client.Options{
