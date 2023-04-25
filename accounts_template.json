@@ -1,0 +1,18 @@
+[
+    {
+        "mnenmonic": "run mask assist favorite cover maximum armor lock eight zoo monitor test",
+        "accountSeed":"H6ryAYQ53nXQU8YwcMdmi7nvjr8qtdE6poZ7WWo2VWsb",
+        "privateKey": "3kpi6cprjYnYQfFuHwNQC7P8PqFUGBqh8A8M378RvTEZ",
+        "publicKey": "Ds7Z3THS5xQDMqqpcJzLgw4PWxMKRcxAw2p7L6CyEtcu",
+        "address": "3PELrxeQozoEvN2JfLD8WzPy74HrWin4xKn",
+        "testNetAddress":"3N2L41KWwsFrHuitQFx8ZY29kAn5gZ1iUGE"
+    },
+    {
+        "mnenmonic": "escape era great wreck shop harvest turn antique joy barrel arena congress",
+        "accountSeed":"H6ryAYQ53nXQU8YwcMdmi7nvjr8qtdE6poZ7WWo2VWsb",
+        "privateKey": "AiHAcmZgV1yEAbuJvUxUzHwJ6aEBygBznsESkRpMha2K",
+        "publicKey": "2G73qVFaSWJL1YE5aRrovdALZmU6cktGuqt7iPPj23j8",
+        "address": "3PAiHaG8NQC4V52qHqJdUHtU7k8LE5pAt2S",
+        "testNetAddress":"3MxhUcwEWGefrcjR2m3dWqWekrcZPwSKyCU"
+    }
+]
