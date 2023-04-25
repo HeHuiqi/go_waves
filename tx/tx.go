@@ -1,12 +1,16 @@
 package tx
 
 import (
+	"context"
 	"hqgovaves/account"
+	"net/http"
+	"time"
 
 	"encoding/json"
 	"strings"
 
 	"github.com/mr-tron/base58/base58"
+	"github.com/wavesplatform/gowaves/pkg/client"
 	"github.com/wavesplatform/gowaves/pkg/crypto"
 	"github.com/wavesplatform/gowaves/pkg/proto"
 )
@@ -49,12 +53,15 @@ func TestTransferWithSig() {
 
 	//注意网络配置
 	scheme := proto.TestNetScheme
+
+	// decimal 为 1e8
+	// The minimum fee for a Transfer transaction is 0.001 WAVES, in case of transferring a smart asset 0.005 WAVES.
 	toInfo := struct {
 		recipient string // 接收地址
 		amount    uint64 // 发送数量
 		fee       uint64 // 交易fee
 		att       string // 备注
-	}{toAc.TestNetAddress, 1000000, 10, "The WAVES Transfer"}
+	}{toAc.TestNetAddress, 100000000, 100000, "The WAVES Transfer"}
 
 	spk, _ := crypto.NewPublicKeyFromBase58(pubKeybs58)
 	rcp, err := recipientFromString(toInfo.recipient)
@@ -80,20 +87,19 @@ func TestTransferWithSig() {
 	}
 	println("bts", string(bts))
 
-	/*
-		//官方不提供apikey,
-		rpcUrl := "https://testnodes.wavesnodes.com"
-		apiKey := ""
-		txs := client.NewTransactions(client.Options{
-			BaseUrl: rpcUrl,
-			Client:  &http.Client{Timeout: 3 * time.Second},
-			ApiKey:  apiKey,
-		})
-		rsp, err := txs.Broadcast(context.Background(), tx)
-		if err != nil {
-			panic(err)
-		}
-		println("rsp", rsp)
-	*/
+	//官方不提供apikey,需要自己搭节点
+	rpcUrl := "https://nodes-testnet.wavesnodes.com"
+	apiKey := ""
+	txs := client.NewTransactions(client.Options{
+		BaseUrl: rpcUrl,
+		Client:  &http.Client{Timeout: 3 * time.Second},
+		ApiKey:  apiKey,
+	})
+	rsp, err := txs.Broadcast(context.Background(), tx)
+	if err != nil {
+		println("txs.Broadcast-error", err.Error())
+		return
+	}
+	println("rsp", rsp)
 
 }
