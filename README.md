@@ -1,4 +1,5 @@
 # go_waves
+水龙头 https://testnet.wavesexplorer.com/faucet
 官方库 https://github.com/wavesplatform/gowaves
 
 测试准备

@@ -46,7 +46,7 @@ func TxTest() {
 func TestTransferWithSig() {
 
 	fromAc := account.GetMainAccount()
-	toAc := account.GetMainAccount()
+	toAc := account.GetAccount(1)
 
 	priKeybs58 := fromAc.PrivateKey
 	pubKeybs58 := fromAc.PublicKey
@@ -76,7 +76,10 @@ func TestTransferWithSig() {
 		panic(err)
 	}
 	att := []byte(toInfo.att)
-	tx := proto.NewUnsignedTransferWithSig(spk, *a, *a, 0, toInfo.amount, toInfo.fee, rcp, att)
+	timestamp := time.Now().Unix() * 1000
+	// timestamp = 1
+	println("timestamp:", timestamp)
+	tx := proto.NewUnsignedTransferWithSig(spk, *a, *a, uint64(timestamp), toInfo.amount, toInfo.fee, rcp, att)
 	_, err = tx.Validate(scheme)
 	if err != nil {
 		panic(err)
