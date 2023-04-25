@@ -54,6 +54,7 @@ func TestTransferWithSig() {
 	//注意网络配置
 	scheme := proto.TestNetScheme
 
+	// https://docs.waves.tech/en/blockchain/transaction/transaction-fee#minimum-fee
 	// decimal 为 1e8
 	// The minimum fee for a Transfer transaction is 0.001 WAVES, in case of transferring a smart asset 0.005 WAVES.
 	toInfo := struct {
